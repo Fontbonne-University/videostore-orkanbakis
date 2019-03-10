@@ -1,5 +1,6 @@
 public class Rental
 {
+	
 	public Rental (Movie movie, int daysRented) {
 		this.movie 		= movie;
 		this.daysRented = daysRented;

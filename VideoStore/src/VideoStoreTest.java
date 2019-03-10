@@ -1,5 +1,6 @@
 import junit.framework.*;
 
+
 public class VideoStoreTest extends TestCase
 {
 	public VideoStoreTest (String name) {
