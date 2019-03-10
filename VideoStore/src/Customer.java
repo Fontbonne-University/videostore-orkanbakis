@@ -60,7 +60,6 @@ public class Customer
 		
 		return result;
 	}
-	
 	private String name;
 	private Vector rentals = new Vector ();
 }
