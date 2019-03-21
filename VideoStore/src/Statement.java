@@ -1,10 +1,16 @@
 import java.util.Vector;
 import java.util.Enumeration;
 
-public class Customer 
+public class Statement 
 {
-	public Customer (String name) {
-		this.name = name;
+	
+	private String customerName;
+	private Vector rentals = new Vector ();
+	private double totalAmount;
+	private int frequentRenterPoints;
+	
+	public Statement (String customerName) {
+		this.customerName = customerName;
 	}
 	
 	public void addRental (Rental rental) {
@@ -12,18 +18,18 @@ public class Customer
 	}
 	
 	public String getName () {
-		return name;
+		return customerName;
 	}
 	
-	public String statement () {
-		double 				totalAmount 			= 0;
-		int					frequentRenterPoints 	= 0;
-		Enumeration 		rentals 				= this.rentals.elements ();
-		String 				result 					= "Rental Record for " + getName () + "\n";
+	public String generate () {
+		totalAmount = 0;
+		frequentRenterPoints = 0;
+		Enumeration rentals = this.rentals.elements();
+		String result = "Rental Record for " + getName() + "\n";
 		
 		while (rentals.hasMoreElements ()) {
-			double 		thisAmount = 0;
-			Rental 		each = (Rental)rentals.nextElement ();
+			double thisAmount = 0;
+			Rental each = (Rental) rentals.nextElement();
 			
 			// determines the amount for each line
 			switch (each.getMovie ().getPriceCode ()) {
@@ -60,6 +66,15 @@ public class Customer
 		
 		return result;
 	}
-	private String name;
-	private Vector rentals = new Vector ();
+	
+	
+	public int getFrequenetRenterPoint() {
+		// TODO Auto-generated method stub
+		return frequentRenterPoints;
+	}
+
+	public double getTotal() {
+		// TODO Auto-generated method stub
+		return totalAmount;
+	}
 }
